@@ -1,0 +1,6 @@
+@SeasonCardMicroService_HostAddress = http://localhost:5193
+
+GET {{SeasonCardMicroService_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
