@@ -5,6 +5,10 @@ VisualStudioVersion = 17.10.36631.13
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientMicroService", "ClientMicroService.csproj", "{794F70BB-1752-48A5-A99C-BCE0E0513568}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoachMicroService", "..\CoachMicroService\CoachMicroService.csproj", "{D71E58DA-2CBE-481E-B638-4E94A9CBE1CF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeasonCardMicroService", "..\SeasonCardMicroService\SeasonCardMicroService.csproj", "{FC981DCA-F7CF-4FD3-8D20-7C4A2BC49B70}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{794F70BB-1752-48A5-A99C-BCE0E0513568}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{794F70BB-1752-48A5-A99C-BCE0E0513568}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{794F70BB-1752-48A5-A99C-BCE0E0513568}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D71E58DA-2CBE-481E-B638-4E94A9CBE1CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D71E58DA-2CBE-481E-B638-4E94A9CBE1CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D71E58DA-2CBE-481E-B638-4E94A9CBE1CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D71E58DA-2CBE-481E-B638-4E94A9CBE1CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC981DCA-F7CF-4FD3-8D20-7C4A2BC49B70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC981DCA-F7CF-4FD3-8D20-7C4A2BC49B70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC981DCA-F7CF-4FD3-8D20-7C4A2BC49B70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC981DCA-F7CF-4FD3-8D20-7C4A2BC49B70}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
