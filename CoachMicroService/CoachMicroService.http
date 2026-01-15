@@ -1,0 +1,6 @@
+@CoachMicroService_HostAddress = http://localhost:5272
+
+GET {{CoachMicroService_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
