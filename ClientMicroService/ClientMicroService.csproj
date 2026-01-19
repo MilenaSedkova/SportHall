@@ -14,4 +14,8 @@
     <Folder Include="Controllers\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\AuthMicroService\AuthMicroService.csproj" />
+  </ItemGroup>
+
 </Project>

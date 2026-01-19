@@ -4,10 +4,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.10.36631.13
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClientMicroService", "ClientMicroService.csproj", "{794F70BB-1752-48A5-A99C-BCE0E0513568}"
+	ProjectSection(ProjectDependencies) = postProject
+		{5783A315-751F-492F-917F-DD82BE47BB8D} = {5783A315-751F-492F-917F-DD82BE47BB8D}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthMicroService", "..\AuthMicroService\AuthMicroService.csproj", "{5783A315-751F-492F-917F-DD82BE47BB8D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoachMicroService", "..\CoachMicroService\CoachMicroService.csproj", "{3AE6A5E9-C293-4C84-81E4-0998075B1390}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeasonCardMicroService", "..\SeasonCardMicroService\SeasonCardMicroService.csproj", "{9EDBD729-9534-4996-B239-64D467BA189A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +32,10 @@ Global
 		{3AE6A5E9-C293-4C84-81E4-0998075B1390}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3AE6A5E9-C293-4C84-81E4-0998075B1390}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3AE6A5E9-C293-4C84-81E4-0998075B1390}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9EDBD729-9534-4996-B239-64D467BA189A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EDBD729-9534-4996-B239-64D467BA189A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EDBD729-9534-4996-B239-64D467BA189A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EDBD729-9534-4996-B239-64D467BA189A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

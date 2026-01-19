@@ -1,15 +1,16 @@
 ﻿using AuthMicroService.Models;
 
-namespace ClientMicroService.Models
+namespace CoachMicroService.Models
 {
-    public class Client
+    public class Coach
     {
         public long Id { get; set; }
         public string Name { get; set; } = null!;
         public string? Surname { get; set; }
         public string Email { get; set; } = null!;
-        public DateOnly DateOfBirth { get; set; }
-        public DateOnly DateOfRegistrationToHall { get; set; }
-        public User? User { get; set; }      
+        public string Phone { get; set; } = null!;
+        public string Specilization { get; set; } = null!;
+        public User? user { get; set; }
+
     }
 }
