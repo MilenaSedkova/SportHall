@@ -10,7 +10,7 @@ namespace AuthMicroService.DTOs
         public string? Surname { get; set; }
 
         [Required(ErrorMessage = "Enter the Email")]
-        [EmailAddress(ErrorMessage = "Email has uncorrect format")]
+        [EmailAddress(ErrorMessage = "Email has incorrect format")]
         public string Email { get; set; } = null!;
 
         [Required(ErrorMessage = "Enter the password")]
