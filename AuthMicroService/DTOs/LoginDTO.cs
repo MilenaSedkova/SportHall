@@ -4,7 +4,7 @@ namespace AuthMicroService.DTOs
 {
     public class LoginDTO
     {
-        [Required(ErrorMessage = "Enter the Emai")]
+        [Required(ErrorMessage = "Enter the Email")]
         [EmailAddress(ErrorMessage = "Incorrect format of Email")]
         public string Email { get; set; } = null!;
         [Required(ErrorMessage = "Enter the password")]
