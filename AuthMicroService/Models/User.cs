@@ -7,16 +7,21 @@ namespace AuthMicroService.Models
     public class User
     {
         [Key]
+
         public Guid Id { get; set; }
-        [Required]
-        public string Name { get; set; } = null!;
+
+        public required string Name { get; set; }
+
         public string? Surname { get; set; }
-        [Required]
-        public string Email { get; set; } = null!;
-        [Required]
-        public string PasswordHash { get; set; } = null!;
+
+        public required string Email { get; set; }
+
+        public required string PasswordHash { get; set; }
+
         public UserRole Role { get; set; }
+
         public bool IsActive { get; set; } = true;
+
         public DateOnly RegistratedAt { get; set; }
     }
 }

@@ -5,10 +5,16 @@ namespace AuthMicroService.DTOs
     public class LoginDTO
     {
         [Required(ErrorMessage = "Enter the Email")]
+
         [EmailAddress(ErrorMessage = "Incorrect format of Email")]
-        public string Email { get; set; } = null!;
+
+        public required string Email { get; set; } = null!;
+
         [Required(ErrorMessage = "Enter the password")]
+
         [MinLength(6, ErrorMessage = "Minimal length of password is 6 symbols")]
-        public string Password { get; set; } = null!;
+
+        public required string PasswordHash { get; set; }
+
     }
 }
