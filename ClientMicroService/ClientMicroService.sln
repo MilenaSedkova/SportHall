@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthMicroService", "..\Auth
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoachMicroService", "..\CoachMicroService\CoachMicroService.csproj", "{24F37857-FC1E-4B13-A714-D92A256CC77E}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeasonCardMicroService", "..\SeasonCardMicroService\SeasonCardMicroService.csproj", "{930830C2-F262-4414-A330-7D7B19AAAA26}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{24F37857-FC1E-4B13-A714-D92A256CC77E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{24F37857-FC1E-4B13-A714-D92A256CC77E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{24F37857-FC1E-4B13-A714-D92A256CC77E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{930830C2-F262-4414-A330-7D7B19AAAA26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{930830C2-F262-4414-A330-7D7B19AAAA26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{930830C2-F262-4414-A330-7D7B19AAAA26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{930830C2-F262-4414-A330-7D7B19AAAA26}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
