@@ -7,7 +7,6 @@ namespace AuthMicroService.Models
     public class User
     {
         [Key]
-
         public Guid Id { get; set; }
 
         public required string Name { get; set; }
