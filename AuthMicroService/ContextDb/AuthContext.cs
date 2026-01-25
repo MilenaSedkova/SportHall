@@ -4,12 +4,8 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace AuthMicroService.ContextDb
 {
-    public class AuthContext : DbContext
+    public class AuthContext(DbContextOptions<AuthContext> options) : DbContext(options)
     {
-        public AuthContext(DbContextOptions<AuthContext> options) : base(options)
-        {
-
-        }
 
         public DbSet<User> Users { get; set; }
 
