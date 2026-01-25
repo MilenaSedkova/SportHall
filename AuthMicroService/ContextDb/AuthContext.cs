@@ -12,7 +12,7 @@ namespace AuthMicroService.ContextDb
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.ApplyConfiguration(new UserConfiguration());         
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(AuthContext).Assembly);
         }
     }
 }
