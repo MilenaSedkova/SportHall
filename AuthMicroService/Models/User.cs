@@ -9,13 +9,13 @@ namespace AuthMicroService.Models
         [Key]
         public Guid Id { get; set; }
 
-        [MaxLength(Constants.MaxNameLength)]
+        [MaxLength(UserEntityConstants.MaxNameLength)]
         public required string Name { get; set; }
 
-        [MaxLength(Constants.MaxSurnameLength)]
+        [MaxLength(UserEntityConstants.MaxSurnameLength)]
         public string? Surname { get; set; }
 
-        [MaxLength(Constants.MaxEmailLength)]
+        [MaxLength(UserEntityConstants.MaxEmailLength)]
         public required string Email { get; set; }
 
         public required string PasswordHash { get; set; }
