@@ -9,7 +9,7 @@ public interface IUserRepository
 
     Task<User?> GetByEmailAsync(string email, CancellationToken cancellationToken, bool isTracking);
 
-    Task<PagedUserResult<User>> GetAllAsync(int pageNumber, int pageSize, CancellationToken cancellationToken);
+    Task<PagedUserResult<User>> GetAllAsync(int pageNumber, int pageSize, CancellationToken cancellationToken, bool isTracking);
 
     Task<User> CreateUserAsync(User user, CancellationToken cancellationTocken);
 
