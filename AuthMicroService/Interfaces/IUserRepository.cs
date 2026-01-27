@@ -5,11 +5,11 @@ namespace AuthMicroService.Interfaces;
 
 public interface IUserRepository
 {
-    Task<User?> GetByIdAsynс(Guid id, CancellationToken cancellationToken, bool isTracking);
+    Task<User?> GetByIdAsynс(Guid id, bool isTracking, CancellationToken cancellationToken);
 
-    Task<User?> GetByEmailAsync(string email, CancellationToken cancellationToken, bool isTracking);
+    Task<User?> GetByEmailAsync(string email, bool isTracking, CancellationToken cancellationToken);
 
-    Task<PagedUserResult<User>> GetAllAsync(int pageNumber, int pageSize, CancellationToken cancellationToken, bool isTracking);
+    Task<PagedUserResult<User>> GetAllAsync(int pageNumber, int pageSize, bool isTracking, CancellationToken cancellationToken);
 
     Task<User> CreateUserAsync(User user, CancellationToken cancellationTocken);
 

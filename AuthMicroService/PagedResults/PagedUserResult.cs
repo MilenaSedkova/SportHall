@@ -1,14 +1,12 @@
-﻿namespace AuthMicroService.PagedResults
-{
-    public class PagedUserResult<T>
-    {
-        public IEnumerable<T> Items { get; set; }
+﻿namespace AuthMicroService.PagedResults;
 
-        public int TotalCount { get; set; } 
+public record PagedUserResult<T>(
+    IEnumerable<T> Items,
 
-        public int PageNumber { get; set; }
+    int TotalCount,
 
-        public int PageSize { get; set; }
+    int PageNumber,
 
-    }
-}
+    int PageSize
+);
+
