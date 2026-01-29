@@ -5,7 +5,7 @@ namespace AuthMicroService.Interfaces;
 
 public interface IUserRepository
 {
-    Task<User?> GetByIdAsynс(Guid id, bool isTracking, CancellationToken cancellationToken);
+    Task<User?> GetByIdAsync(Guid id, bool isTracking, CancellationToken cancellationToken);
 
     Task<User?> GetByEmailAsync(string email, bool isTracking, CancellationToken cancellationToken);
 
