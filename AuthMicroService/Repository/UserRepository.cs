@@ -7,20 +7,17 @@ using Microsoft.EntityFrameworkCore;
 
 namespace AuthMicroService.Repository;
 
-public class UserRepository : IUserRepository
+public class UserRepository(AuthContext userSet) : IUserRepository
 {
-    private readonly AuthContext _context;
-
-    public UserRepository(AuthContext context)
-    {
-        _context = context;
-    }
-
     public async Task<User?> GetByIdAsync(Guid id, bool isTracking, CancellationToken cancellationToken)
     {
-        var query = _context.Users.AsQueryable();
+        var query = userSet.Users.AsQueryable();
 
-        if (!isTracking)
+        if (isTracking)
+        {
+
+        }
+        else
         {
             query = query.AsNoTracking();
         }
@@ -29,7 +26,7 @@ public class UserRepository : IUserRepository
 
     public async Task<User?> GetByEmailAsync(string email, bool isTracking, CancellationToken cancellationToken)
     {
-        var query = _context.Users.AsQueryable();
+        var query = userSet.Users.AsQueryable();
 
         if (!isTracking)
         {
@@ -41,7 +38,7 @@ public class UserRepository : IUserRepository
 
     public async Task<PagedUserResult<User>> GetAllAsync(int pageNumder, int pageSize, bool isTracking, CancellationToken cancellationToken)
     {
-        var query = _context.Users.AsQueryable();
+        var query = userSet.Users.AsQueryable();
 
         if (!isTracking)
         {
@@ -60,33 +57,33 @@ public class UserRepository : IUserRepository
 
     public async Task<User> CreateUserAsync(User user, CancellationToken cancellationToken)
     {
-        await _context.Users.AddAsync(user, cancellationToken);
-        await _context.SaveChangesAsync(cancellationToken);
+        await userSet.Users.AddAsync(user, cancellationToken);
+        await userSet.SaveChangesAsync(cancellationToken);
         return user;
     }
 
     public async Task<bool> DeleteUserAsync(Guid id, CancellationToken cancellationToken)
     {
-        var user = await _context.Users.FindAsync(id, cancellationToken);
-        if(user == null)
+        var user = await userSet.Users.FirstOrDefaultAsync(u => u.Id == id);
+        if(user is null)
         {
             return false;
         }
-        _context.Users.Remove(user);
-        await _context.SaveChangesAsync(cancellationToken);
-        return true;
+        userSet.Users.Remove(user);
+        return await userSet.SaveChangesAsync(cancellationToken) > 0;
+        
     }
     public async Task<bool> UpdateUserAsync(User user, CancellationToken cancellationToken)
     {
-        _context.Users.Update(user);
-        var changedRows = await _context.SaveChangesAsync(cancellationToken);
+        userSet.Users.Update(user);
+        var changedRows = await userSet.SaveChangesAsync(cancellationToken);
         return changedRows > 0;
     }
 
     public async Task<bool> EmailExistAsync(string email, CancellationToken cancellationToken)
     {
-        var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
-        if (user == null)
+        var user = await userSet.Users.FirstOrDefaultAsync(u => u.Email == email);
+        if (user is null)
         {
             return false;
         }
