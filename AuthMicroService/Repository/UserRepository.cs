@@ -11,16 +11,8 @@ public class UserRepository(AuthContext userSet) : IUserRepository
 {
     public async Task<User?> GetByIdAsync(Guid id, bool isTracking, CancellationToken cancellationToken)
     {
-        var query = userSet.Users.AsQueryable();
+        var query = isTracking ? userSet.Users.AsQueryable() : userSet.Users.AsNoTracking(); 
 
-        if (isTracking)
-        {
-
-        }
-        else
-        {
-            query = query.AsNoTracking();
-        }
         return await query.FirstOrDefaultAsync(u => u.Id == id, cancellationToken);
     }
 
@@ -70,24 +62,13 @@ public class UserRepository(AuthContext userSet) : IUserRepository
             return false;
         }
         userSet.Users.Remove(user);
-        return await userSet.SaveChangesAsync(cancellationToken) > 0;
-        
+        return await userSet.SaveChangesAsync(cancellationToken) > 0;      
     }
     public async Task<bool> UpdateUserAsync(User user, CancellationToken cancellationToken)
     {
         userSet.Users.Update(user);
         var changedRows = await userSet.SaveChangesAsync(cancellationToken);
         return changedRows > 0;
-    }
-
-    public async Task<bool> EmailExistAsync(string email, CancellationToken cancellationToken)
-    {
-        var user = await userSet.Users.FirstOrDefaultAsync(u => u.Email == email);
-        if (user is null)
-        {
-            return false;
-        }
-        return true;
     }
 }
 
