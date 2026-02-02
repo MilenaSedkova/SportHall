@@ -21,5 +21,9 @@ namespace AuthMicroService.Interfaces
         public Task<bool> DeleteUserAsync(Guid id, CancellationToken cancellationToken);
 
         public Task<bool> ChangePasswordAsync(Guid id, CancellationToken cancellationToken);
+
+        public Task<bool> ActivateUserAsync(Guid id, CancellationToken cancellationToken);
+
+        public Task<bool> DeActivateUserAsync(Guid id, CancellationToken cancellationToken);
     }
 }
