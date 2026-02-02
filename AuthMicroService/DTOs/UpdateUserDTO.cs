@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace AuthMicroService.DTOs
 {
-    public class UpdateUserDTO
+    public class UpdateUserDto
     {
         public Guid Id { get; set; }
 

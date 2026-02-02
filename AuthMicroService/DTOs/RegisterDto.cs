@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace AuthMicroService.DTOs
 {
-    public class RegistrationDTO
+    public class RegisterDto
     {
         [Required(ErrorMessage = "Enter user name")]
         public required string Name { get; set; }

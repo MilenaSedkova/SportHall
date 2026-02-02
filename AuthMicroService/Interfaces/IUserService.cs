@@ -6,17 +6,17 @@ namespace AuthMicroService.Interfaces
 {
     public interface IUserService
     {
-        public Task<UserForAdminDTO?> GetByIdAsync(Guid id, bool isTracking, CancellationToken cancellationToken);
+        public Task<UserForAdminDto?> GetByIdAsync(Guid id, bool isTracking, CancellationToken cancellationToken);
 
-        public Task<UserForAdminDTO?> GetByEmailAsync(string email, bool isTracking, CancellationToken cancellationToken);
+        public Task<UserForAdminDto?> GetByEmailAsync(string email, bool isTracking, CancellationToken cancellationToken);
 
-        public Task<PagedUserResult<UserForAdminDTO?>> GetAllAsync(int pageNumber, int pageSize, bool isTracking, CancellationToken cancellationToken);
+        public Task<PagedUserResult<UserForAdminDto?>> GetAllAsync(int pageNumber, int pageSize, bool isTracking, CancellationToken cancellationToken);
 
-        public Task<bool> RegistrationAsync(RegistrationDTO registrationDTO, CancellationToken cancellationToken);
+        public Task<bool> RegistrationAsync(RegisterDto registrationDTO, CancellationToken cancellationToken);
 
-        public Task<bool> LoginAsync(LoginDTO loginDTO, CancellationToken cancellationToken);
+        public Task<bool> LoginAsync(LoginDto loginDTO, CancellationToken cancellationToken);
 
-        public Task<bool> UpdateUserAsync(UpdateUserDTO updateUser, CancellationToken cancellationToken);
+        public Task<bool> UpdateUserAsync(UpdateUserDto updateUser, CancellationToken cancellationToken);
 
         public Task<bool> DeleteUserAsync(Guid id, CancellationToken cancellationToken);
 

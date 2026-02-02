@@ -2,7 +2,7 @@
 
 namespace AuthMicroService.DTOs
 {
-    public record UserForAdminDTO
+    public record UserForAdminDto
     {
         Guid Id;
         string Name;
