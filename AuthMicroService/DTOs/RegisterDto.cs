@@ -15,7 +15,6 @@ namespace AuthMicroService.DTOs
         public required string Email { get; set; }
 
         [Required(ErrorMessage = "Enter the password")]
-        [MinLength(6, ErrorMessage = "Minimal length of password is 6 symbols")]
         public required string PasswordHash { get; set; }
 
         [Required(ErrorMessage = "Enter the role")]
