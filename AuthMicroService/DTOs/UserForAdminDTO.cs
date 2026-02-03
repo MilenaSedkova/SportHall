@@ -3,7 +3,6 @@
 namespace AuthMicroService.DTOs;
 
 public record UserForAdminDto(
-
      Guid Id,
      string Name,
      string? Surname,
