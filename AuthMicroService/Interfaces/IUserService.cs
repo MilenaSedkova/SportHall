@@ -14,7 +14,7 @@ namespace AuthMicroService.Interfaces
 
         Task<bool> RegisterAsync(RegisterDto registrationDTO, CancellationToken cancellationToken);
 
-        Task<bool> LoginAsync(LoginDto loginDTO, CancellationToken cancellationToken);
+        Task<LoginResultDto> LoginAsync(LoginDto loginDTO, CancellationToken cancellationToken);
 
         Task<UserForAdminDto> UpdateUserAsync(UpdateUserDto updateUser, CancellationToken cancellationToken);
 
