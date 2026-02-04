@@ -11,7 +11,7 @@ public interface IUserRepository
 
     Task<PagedUserResult<User>> GetAllAsync(int pageNumber, int pageSize, bool isTracking, CancellationToken cancellationToken);
 
-    Task<User> CreateUserAsync(User user, CancellationToken cancellationTocken);
+    Task<User> CreateUserAsync(User user, CancellationToken cancellationToken);
 
     Task<bool> UpdateUserAsync(User user, CancellationToken cancellationToken);
 

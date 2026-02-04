@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace AuthMicroService.DTOs
 {
-    public class RegistrationDTO
+    public class RegisterDto
     {
         [Required(ErrorMessage = "Enter user name")]
         public required string Name { get; set; }
@@ -15,7 +15,6 @@ namespace AuthMicroService.DTOs
         public required string Email { get; set; }
 
         [Required(ErrorMessage = "Enter the password")]
-        [MinLength(6, ErrorMessage = "Minimal length of password is 6 symbols")]
         public required string PasswordHash { get; set; }
 
         [Required(ErrorMessage = "Enter the role")]
