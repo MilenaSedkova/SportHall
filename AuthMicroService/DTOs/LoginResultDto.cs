@@ -6,7 +6,6 @@ namespace AuthMicroService.DTOs;
      bool Succeeded,
      string? Token,
      Guid? Id,
-     UserRole? Role,
      DateTime? RegistratedAt,
      string? ErrorMessage
 );
