@@ -1,7 +1,12 @@
-﻿using AuthMicroService.Models;
-using AuthMicroService.PagedResults;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using AuthService.DataAccess.Models;
+using AuthService.DataAccess.PagedResults;
 
-namespace AuthMicroService.Interfaces;
+namespace AuthService.DataAccess.Interfaces;
 
 public interface IUserRepository
 {
