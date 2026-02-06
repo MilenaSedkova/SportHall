@@ -1,17 +1,17 @@
-﻿using AuthMicroService.ContextDb;
-using AuthMicroService.Interfaces;
-using AuthMicroService.Models;
-using AuthMicroService.PagedResults;
+﻿using AuthService.DataAccess.ContextDb;
+using AuthService.DataAccess.Interfaces;
+using AuthService.DataAccess.Models;
+using AuthService.DataAccess.PagedResults;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
-namespace AuthMicroService.Repository;
+namespace AuthService.DataAccess.Repository;
 
 public class UserRepository(AuthContext userSet) : IUserRepository
 {
     public async Task<User?> GetByIdAsync(Guid id, bool isTracking, CancellationToken cancellationToken)
     {
-        var query = isTracking ? userSet.Users.AsQueryable() : userSet.Users.AsNoTracking(); 
+        var query = isTracking ? userSet.Users.AsQueryable() : userSet.Users.AsNoTracking();
 
         return await query.FirstOrDefaultAsync(u => u.Id == id, cancellationToken);
     }
@@ -57,12 +57,12 @@ public class UserRepository(AuthContext userSet) : IUserRepository
     public async Task<bool> DeleteUserAsync(Guid id, CancellationToken cancellationToken)
     {
         var user = await userSet.Users.FirstOrDefaultAsync(u => u.Id == id);
-        if(user is null)
+        if (user is null)
         {
             return false;
         }
         userSet.Users.Remove(user);
-        return await userSet.SaveChangesAsync(cancellationToken) > 0;      
+        return await userSet.SaveChangesAsync(cancellationToken) > 0;
     }
     public async Task<bool> UpdateUserAsync(User user, CancellationToken cancellationToken)
     {
@@ -71,4 +71,5 @@ public class UserRepository(AuthContext userSet) : IUserRepository
         return changedRows > 0;
     }
 }
+
 
