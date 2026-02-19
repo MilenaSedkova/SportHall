@@ -17,12 +17,12 @@ namespace AuthService.Business.Utils
         {
             var claimsForJwt = new[]
             {
-            new Claim(ClaimTypes.NameIdentifier, id.ToString()),
-            new Claim(ClaimTypes.Email, email),
-            new Claim(ClaimTypes.Role, role.ToString())
-        };
-
-            var secretKey = Environment.GetEnvironmentVariable("JWT_KEY");
+                new Claim(ClaimTypes.NameIdentifier, id.ToString()),
+                new Claim(ClaimTypes.Email, email),
+                new Claim(ClaimTypes.Role, role.ToString())
+            };
+   
+            var secretKey = Environment.GetEnvironmentVariable(JwtConstants.JwtKeyEnironment);
             var key = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(secretKey));
 
             var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);

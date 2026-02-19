@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using AuthService.Business.Utils;
 
 namespace AuthService.API.Extensions
 {
@@ -9,7 +10,7 @@ namespace AuthService.API.Extensions
         public static IServiceCollection AddJwtAuthentication(this IServiceCollection services, IConfiguration configuration)
         {
             var jwtSettings = configuration.GetSection("JwtSettings");
-            var secretKey = Environment.GetEnvironmentVariable("JWT_KEY");
+            var secretKey = Environment.GetEnvironmentVariable(JwtConstants.JwtKeyEnironment);
 
             if (string.IsNullOrEmpty(secretKey))
             {
