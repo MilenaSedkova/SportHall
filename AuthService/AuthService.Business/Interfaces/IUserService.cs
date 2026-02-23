@@ -24,7 +24,7 @@ public interface IUserService
 
     Task<bool> DeleteUserAsync(Guid id, CancellationToken cancellationToken);
 
-    Task<bool> ChangePasswordAsync(Guid id, CancellationToken cancellationToken);
+    Task<bool> ChangePasswordAsync(Guid id, string newPassword, CancellationToken cancellationToken);
 
     Task<bool> ActivateUserAsync(Guid id, CancellationToken cancellationToken);
 
