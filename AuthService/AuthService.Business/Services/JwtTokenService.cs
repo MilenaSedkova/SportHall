@@ -1,24 +1,19 @@
 ﻿using AuthService.Business.Interfaces;
-using Microsoft.Extensions.Configuration;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using AuthService.DataAccess.Models;
 using AuthService.Business.Utils;
+using Microsoft.Extensions.Options;
 
 namespace AuthService.Business.Services;
 
-public class JwtTokenService(IConfiguration configuration)  : IJwtTokenService
+public class JwtTokenService(IOptions<JwtSettings> options)  : IJwtTokenService
 {
-    public string GenerateTokenForLogin(User user)
-    {
+    private readonly JwtSettings jwtSettings = options.Value;
 
-        var jwtSettings = configuration.GetSection("JwtSettings");
+    public string GenerateTokenForLogin(User user)
+    { 
         var secretKey = Environment.GetEnvironmentVariable(JwtConstants.JwtKeyEnironment);
 
-        var jwtGenerator = new JwtTokenGenerator(configuration);
+        var jwtGenerator = new JwtTokenGenerator(jwtSettings);
 
         return jwtGenerator.GenerateToken(
             email: user.Email,

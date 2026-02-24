@@ -1,15 +1,7 @@
 ﻿using AuthService.Business.DTOs;
-using AuthService.Business.Utils;
 using AuthService.DataAccess.Interfaces;
 using AuthService.DataAccess.Models;
-using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.Extensions.Configuration;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using AuthService.Business.Interfaces;
 
 namespace AuthService.Business.Services;
@@ -24,7 +16,7 @@ public class AuthService(IUserRepository userRepository, IPasswordHasher<User> p
 
         if (user is null)
         {
-            return new LoginResultDto(false, null, null, null, "User is not found");
+            return new LoginResultDto(false, null, null, null, "User not found");
         }
 
         var result = passwordHasher.VerifyHashedPassword(user, user.PasswordHash, loginDto.PasswordHash);
@@ -57,7 +49,5 @@ public class AuthService(IUserRepository userRepository, IPasswordHasher<User> p
         var result = await userRepository.CreateUserAsync(user, cancellationToken);
 
         return result is not null;
-
     }
 }
-
