@@ -14,5 +14,3 @@ public class JwtSettings
 
     public int ExpireTimesInMinutes { get; set; }
 }
-
-

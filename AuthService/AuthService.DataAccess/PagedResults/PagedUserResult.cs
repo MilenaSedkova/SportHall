@@ -12,4 +12,3 @@ public record PagedUserResult<T>(
     int PageNumber,
     int PageSize
 );
-

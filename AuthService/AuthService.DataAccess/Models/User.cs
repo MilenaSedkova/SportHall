@@ -30,4 +30,3 @@ public class User
 
      public DateOnly RegistratedAt { get; set; }
 }
-
