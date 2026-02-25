@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using AuthService.DataAccess.Models;
-using System.Reflection.Emit;
 
 namespace AuthMicroService.ContextDb;
 
