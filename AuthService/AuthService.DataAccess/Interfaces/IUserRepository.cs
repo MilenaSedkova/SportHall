@@ -22,4 +22,3 @@ public interface IUserRepository
 
     Task<bool> DeleteUserAsync(Guid id, CancellationToken cancellationToken);
 }
-

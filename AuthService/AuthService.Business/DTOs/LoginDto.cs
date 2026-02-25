@@ -18,4 +18,3 @@ public class LoginDto
     public required string PasswordHash { get; set; }
 
 }
-

@@ -16,4 +16,3 @@ public record UserForAdminDto(
      bool IsActive,
      DateOnly RegistratedAt
 );
-
