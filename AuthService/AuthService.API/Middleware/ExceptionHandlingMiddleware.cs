@@ -4,7 +4,7 @@ using System.Text.Json;
 
 namespace AuthService.API.Middleware;
 
-public class ExceptionHandlingMiddleware(RequestDelegate next)
+public class ExceptionHandlingMiddleware(RequestDelegate next, ILogger<ExceptionHandlingMiddleware> logger)
 {
     public async Task InvokeAsync(HttpContext context)
     {
@@ -15,6 +15,7 @@ public class ExceptionHandlingMiddleware(RequestDelegate next)
         catch(Exception ex) 
         {
             await HandleExceptionAsync(context, ex);
+            logger.LogError(ex, "An unhandled exception occurred while processing the request {Path}", context.Request.Path);
         }
     }
 
