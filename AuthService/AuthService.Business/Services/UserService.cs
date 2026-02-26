@@ -41,7 +41,7 @@ public class UserService(IUserRepository userRepository, IPasswordHasher<User> p
     public async Task<UserForAdminDto> UpdateUserAsync(UpdateUserDto updateUser, CancellationToken cancellationToken)
     {
         var user = await userRepository.GetByIdAsync(updateUser.Id, true, cancellationToken)
-            ?? throw new Exception($"User with id {updateUser.Id} not found");
+            ?? throw new NotFoundException($"User with id {updateUser.Id} not found");
 
         UserPatchMapper.ApplyMapping(user, updateUser);
 
