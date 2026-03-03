@@ -8,14 +8,14 @@ namespace AuthService.API.Controllers;
 public class AuthController(IAuthService userService) : ControllerBase
 {
     [HttpPost("login")]
-    public async Task<ActionResult<LoginResultDto>> LoginAsync([FromBody] LoginDto loginDto, CancellationToken cancellationToken)
+    public async Task<ActionResult<LoginResultDto>> LoginAsync(LoginDto loginDto, CancellationToken cancellationToken)
     {
         var user = await userService.LoginAsync(loginDto, cancellationToken);
         return Ok(user);
     }
 
     [HttpPost("register")]
-    public async Task<ActionResult<RegisterDto>> RegisterAsync([FromBody] RegisterDto registerDto, CancellationToken cancellationToken)
+    public async Task<ActionResult<RegisterDto>> RegisterAsync(RegisterDto registerDto, CancellationToken cancellationToken)
     {
         var user = await userService.RegisterAsync(registerDto, cancellationToken);
         return Ok(user);
