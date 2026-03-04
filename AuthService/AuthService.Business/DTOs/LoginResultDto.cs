@@ -1,4 +1,6 @@
 ﻿using System;
+using AuthService.Business.Enums;
+
 namespace AuthService.Business.DTOs;
 
 public record LoginResultDto(
@@ -6,5 +8,6 @@ public record LoginResultDto(
      string? Token,
      Guid? Id,
      DateTime? RegistratedAt,
-     string? ErrorMessage
+     string? ErrorMessage,
+     LoginErrorType? ErrorType 
 );

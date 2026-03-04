@@ -1,6 +1,7 @@
 ﻿using AuthService.Business.DTOs;
 using AuthService.Business.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using AuthService.Business.Enums;
 namespace AuthService.API.Controllers;
 
 [ApiController]
@@ -13,10 +14,10 @@ public class AuthController(IAuthService authService) : ControllerBase
         var result = await authService.LoginAsync(loginDto, cancellationToken);
         if (!result.Succeeded)
         {
-            return result.ErrorMessage switch
+            return result.ErrorType switch
             {
-                "User not found" => NotFound(result),
-                "Password is uncorrect" => Unauthorized(result),
+                LoginErrorType.NotFound => NotFound(result),
+                LoginErrorType.Unknown=> Unauthorized(result),
                 _ => BadRequest(result),
             };
         }

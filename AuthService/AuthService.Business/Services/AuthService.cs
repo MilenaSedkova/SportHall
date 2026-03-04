@@ -3,6 +3,8 @@ using AuthService.DataAccess.Interfaces;
 using AuthService.DataAccess.Models;
 using Microsoft.AspNetCore.Identity;
 using AuthService.Business.Interfaces;
+using Microsoft.AspNetCore.Http.HttpResults;
+using AuthService.Business.Enums;
 
 namespace AuthService.Business.Services;
 
@@ -16,19 +18,19 @@ public class AuthService(IUserRepository userRepository, IPasswordHasher<User> p
 
         if (user is null)
         {
-            return new LoginResultDto(false, null, null, null, "User not found");
+            return new LoginResultDto(false, null, null, null, "User not found", LoginErrorType.NotFound);
         }
 
         var result = passwordHasher.VerifyHashedPassword(user, user.PasswordHash, loginDto.PasswordHash);
 
         if (result is PasswordVerificationResult.Failed)
         {
-            return new LoginResultDto(false, null, null, null, "Password is uncorrect");
+            return new LoginResultDto(false, null, null, null, "Password is uncorrect", LoginErrorType.IncorrectPassword);
         }
 
         var token = jwtTokenService.GenerateTokenForLogin(user);
 
-        return new LoginResultDto(true, token, user.Id, user.RegistratedAt.ToDateTime(TimeOnly.MinValue), null);
+        return new LoginResultDto(true, token, user.Id, user.RegistratedAt.ToDateTime(TimeOnly.MinValue), null, LoginErrorType.None);
     }
 
     public async Task<bool> RegisterAsync(RegisterDto registrationDTO, CancellationToken cancellationToken)
