@@ -5,19 +5,28 @@ namespace AuthService.API.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public class AuthController(IAuthService userService) : ControllerBase
+public class AuthController(IAuthService authService) : ControllerBase
 {
     [HttpPost("login")]
     public async Task<ActionResult<LoginResultDto>> LoginAsync(LoginDto loginDto, CancellationToken cancellationToken)
     {
-        var user = await userService.LoginAsync(loginDto, cancellationToken);
-        return Ok(user);
+        var result = await authService.LoginAsync(loginDto, cancellationToken);
+        if (!result.Succeeded)
+        {
+            return result.ErrorMessage switch
+            {
+                "User not found" => NotFound(result),
+                "Password is uncorrect" => Unauthorized(result),
+                _ => BadRequest(result),
+            };
+        }
+        return Ok(result);
     }
 
     [HttpPost("register")]
     public async Task<ActionResult<RegisterDto>> RegisterAsync(RegisterDto registerDto, CancellationToken cancellationToken)
     {
-        var user = await userService.RegisterAsync(registerDto, cancellationToken);
-        return Ok(user);
+        var result = await authService.RegisterAsync(registerDto, cancellationToken);
+        return Ok();
     }
 }
