@@ -28,7 +28,7 @@ public class UserController(IUserService userService) : ControllerBase
         return Ok(user);
     }
 
-    [Authorize(Roles =$"{nameof(UserRole.Admin)} , {nameof(UserRole.Coach)}")]
+    [Authorize(Roles = $"{nameof(UserRole.Admin)} , {nameof(UserRole.Coach)}")]
     [HttpGet]
     public async Task<ActionResult> GetAllAsync(int pageNumber, int pageSize, CancellationToken cancellationToken)
     {
@@ -52,7 +52,7 @@ public class UserController(IUserService userService) : ControllerBase
     }
 
     [Authorize(Roles = nameof(UserRole.Admin))]
-    [HttpPut("{id: guid} /activateUser")]
+    [HttpPut("{id:guid}/activateUser")]
     public async Task<ActionResult> ActivateUserAsync(Guid id, CancellationToken cancellationToken)
     {
         var user = await userService.ActivateUserAsync(id, cancellationToken);
@@ -60,7 +60,7 @@ public class UserController(IUserService userService) : ControllerBase
     }
 
     [Authorize(Roles = nameof(UserRole.Admin))]
-    [HttpPut("{id: guid}/deactivateUser")]
+    [HttpPut("{id:guid}/deactivateUser")]
     public async Task<ActionResult> DeActivateUserAsync(Guid id, CancellationToken cancellationToken)
     {
         var user = await userService.DeActivateUserAsync(id, cancellationToken);
@@ -68,7 +68,7 @@ public class UserController(IUserService userService) : ControllerBase
     }
 
     [Authorize(Roles = nameof(UserRole.Admin))]
-    [HttpDelete("{id: guid}")]
+    [HttpDelete("{id:guid}")]
     public async Task<ActionResult> DeleteUserAsync(Guid id, CancellationToken cancellationToken)
     {
         var user = await userService.DeleteUserAsync(id, cancellationToken);
