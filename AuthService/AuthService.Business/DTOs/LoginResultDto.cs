@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using AuthService.Business.Enums;
 
 namespace AuthService.Business.DTOs;
 
@@ -11,5 +8,6 @@ public record LoginResultDto(
      string? Token,
      Guid? Id,
      DateTime? RegistratedAt,
-     string? ErrorMessage
+     string? ErrorMessage,
+     LoginErrorType? ErrorType 
 );
