@@ -2,6 +2,7 @@
 using ClientService.DataAccess.Enums;
 
 namespace ClientService.DataAccess.Models;
+
 public class Client
 {
     [Key]
