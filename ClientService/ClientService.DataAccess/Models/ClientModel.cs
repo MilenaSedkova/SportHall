@@ -9,21 +9,21 @@ public class Client
 
     public Guid UserId { get; set; }
 
-    [MaxLength(ClientEntityConstants.MaxPhoneNumberLength)]
+    [MaxLength(ClientConstants.MaxPhoneNumberLength)]
     public required string PhoneNumber { get; set; }
 
-    public DateOnly BirhDate { get; set; }
+    public DateOnly BirthDate { get; set; }
 
     public ClientGender Gender { get; set; }
 
-    [MaxLength(ClientEntityConstants.MaxNameLength)]
+    [MaxLength(ClientConstants.MaxNameLength)]
     public required string EmergencyContactName { get; set; }
 
-    [MaxLength(ClientEntityConstants.MaxPhoneNumberLength)]
+    [MaxLength(ClientConstants.MaxPhoneNumberLength)]
     public required string EmergencyContactPhone {  get; set; }
 }
 
-file static class ClientEntityConstants
+file static class ClientConstants
 {
     public const int MaxNameLength = 128;
     public const int MaxPhoneNumberLength = 38;
