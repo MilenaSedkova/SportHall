@@ -2,7 +2,7 @@
 using ClientService.DataAccess.Enums;
 
 namespace ClientService.DataAccess.Models;
-public class ClientModel
+public class Client
 {
     [Key]
     public Guid Id { get; set; }
@@ -21,4 +21,10 @@ public class ClientModel
 
     [MaxLength(ClientEntityConstants.MaxPhoneNumberLength)]
     public required string EmergencyContactPhone {  get; set; }
+}
+
+file static class ClientEntityConstants
+{
+    public const int MaxNameLength = 128;
+    public const int MaxPhoneNumberLength = 38;
 }
