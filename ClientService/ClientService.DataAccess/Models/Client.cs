@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using ClientService.DataAccess.Enums;
+using ClientService.DataAccess.Validation;
 
 namespace ClientService.DataAccess.Models;
 
@@ -11,6 +12,7 @@ public class Client
     public Guid UserId { get; set; }
 
     [MaxLength(ClientConstants.MaxPhoneNumberLength)]
+    [BelarusPhoneNumber(ErrorMessage = "Неверный формат номера телефона")]
     public required string PhoneNumber { get; set; }
 
     public DateOnly BirthDate { get; set; }
@@ -21,6 +23,7 @@ public class Client
     public required string EmergencyContactName { get; set; }
 
     [MaxLength(ClientConstants.MaxPhoneNumberLength)]
+    [BelarusPhoneNumber(ErrorMessage = "Неверный формат номера телефона")]
     public required string EmergencyContactPhone {  get; set; }
 }
 
