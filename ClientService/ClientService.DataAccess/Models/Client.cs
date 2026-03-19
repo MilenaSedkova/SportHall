@@ -12,7 +12,7 @@ public class Client
     public Guid UserId { get; set; }
 
     [MaxLength(ClientConstants.MaxPhoneNumberLength)]
-    [BelarusPhoneNumber(ErrorMessage = "Неверный формат номера телефона")]
+    [BelarusPhoneNumber(ErrorMessage = "The number format is incorrect")]
     public required string PhoneNumber { get; set; }
 
     public DateOnly BirthDate { get; set; }
@@ -23,7 +23,7 @@ public class Client
     public required string EmergencyContactName { get; set; }
 
     [MaxLength(ClientConstants.MaxPhoneNumberLength)]
-    [BelarusPhoneNumber(ErrorMessage = "Неверный формат номера телефона")]
+    [BelarusPhoneNumber(ErrorMessage = "The number format is incorrect")]
     public required string EmergencyContactPhone {  get; set; }
 }
 
