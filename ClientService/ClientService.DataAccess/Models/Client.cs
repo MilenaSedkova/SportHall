@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using ClientService.DataAccess.Enums;
 using ClientService.DataAccess.Validation;
+using ClientService.DataAccess.Constants;
 
 namespace ClientService.DataAccess.Models;
 
@@ -25,10 +26,4 @@ public class Client
     [MaxLength(ClientConstants.MaxPhoneNumberLength)]
     [BelarusPhoneNumber(ErrorMessage = "The number format is incorrect")]
     public required string EmergencyContactPhone {  get; set; }
-}
-
-file static class ClientConstants
-{
-    public const int MaxNameLength = 128;
-    public const int MaxPhoneNumberLength = 38;
 }
