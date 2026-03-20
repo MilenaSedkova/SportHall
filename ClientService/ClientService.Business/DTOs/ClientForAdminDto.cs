@@ -3,7 +3,6 @@
 namespace ClientService.Business.DTOs;
 
 public record ClientForAdminDto(
-
     Guid Id,
     string PhoneNumber,
     DateOnly BirthDate,
