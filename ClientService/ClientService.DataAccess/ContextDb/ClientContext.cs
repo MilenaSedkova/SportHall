@@ -9,9 +9,6 @@ public class ClientContext(DbContextOptions<ClientContext> options) : DbContext(
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        base.OnModelCreating(modelBuilder);
-
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(ClientContext).Assembly);
-
     }
 }
