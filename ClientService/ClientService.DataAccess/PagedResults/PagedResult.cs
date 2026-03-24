@@ -1,6 +1,6 @@
 ﻿namespace ClientService.DataAccess.PagedResults;
 
-public record PagedClientResult<T>(
+public record PagedResult<T>(
     IEnumerable<T> Items,
     int pageSize, 
     int pageNumber,

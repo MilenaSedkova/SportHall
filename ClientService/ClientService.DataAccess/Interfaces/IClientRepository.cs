@@ -11,11 +11,11 @@ public interface IClientRepository
 
     Task<Client?> GetClientByEmailAsync(string email, bool isTracking, CancellationToken cancellationToken);
 
-    Task<PagedClientResult<Client>> GetAllAsync(int pageSize, int pageNumber, bool isTracking, CancellationToken cancellationToken);
+    Task<PagedResult<Client>> GetAllAsync(int pageSize, int pageNumber, bool isTracking, CancellationToken cancellationToken);
 
-    Task<PagedClientResult<Client>> GetClientByGenderAsync(int pageSize, int pageNumber, ClientGender gender, bool isTracking, CancellationToken cancellationToken);
+    Task<PagedResult<Client>> GetClientByGenderAsync(int pageSize, int pageNumber, ClientGender gender, bool isTracking, CancellationToken cancellationToken);
 
-    Task<PagedClientResult<Client>> GetClientByPhoneNumberAsync(int pageSize, int pageNumber, string phoneNumber, bool isTracking, CancellationToken cancellationToken);
+    Task<PagedResult<Client>> GetClientByPhoneNumberAsync(int pageSize, int pageNumber, string phoneNumber, bool isTracking, CancellationToken cancellationToken);
 
     Task<Client> CreateClientAsync(Client client, CancellationToken cancellationToken);
 
