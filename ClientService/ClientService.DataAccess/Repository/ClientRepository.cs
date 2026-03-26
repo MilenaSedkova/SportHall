@@ -66,15 +66,10 @@ public class ClientRepository(ClientContext clientSet) : IClientRepository
 
     public async Task<bool> DeleteClientAsync(Guid id, CancellationToken cancellationToken)
     {
-        var client = await clientSet.Clients.FirstOrDefaultAsync(c => c.Id == id);
+        var deletedCount = await clientSet.Clients
+            .Where(c => c.Id == id)
+            .ExecuteDeleteAsync();
 
-        if(client is null)
-        {
-            return false;
-        }
-
-        clientSet.Clients.Remove(client);
-
-        return await clientSet.SaveChangesAsync(cancellationToken) > 0;
+        return deletedCount > 0;
     }
 }
