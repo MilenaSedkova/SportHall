@@ -13,7 +13,7 @@ public class CllientService(IClientRepository clientRepository): IClientService
 {
     public async Task<ClientForAdminDto?> GetClientByIdAsync(Guid id, CancellationToken cancellationToken)
     {
-        var client = await clientRepository.GetClientByIdAsync(id, isTracking:false, cancellationToken);
+        var client = await clientRepository.GetClientByIdAsync(id, isTracking: false, cancellationToken);
         return client is null
             ? throw new NotFoundException($"User with id: {id} not found")
             : ClientMapper.MapToAdminDto(client);
@@ -73,6 +73,7 @@ public class CllientService(IClientRepository clientRepository): IClientService
     {
         return await clientRepository.CountByGenderAsync(clientGender, cancellationToken);
     }
+
     private PagedResult<ClientForAdminDto?> MapToAdminPaged(PagedResult<Client> result)
     {
         return new PagedResult<ClientForAdminDto?>(
