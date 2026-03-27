@@ -16,4 +16,6 @@ public interface IClientRepository
     Task<bool> UpdateClientAsync(Client client, CancellationToken cancelToken);
 
     Task<bool> DeleteClientAsync(Guid id, CancellationToken cancellationToken);
+
+    Task<int> CountByGenderAsync(ClientGender clientGender, CancellationToken cancellationToken);
 }
