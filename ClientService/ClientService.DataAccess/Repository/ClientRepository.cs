@@ -76,7 +76,6 @@ public class ClientRepository(ClientContext clientSet) : IClientRepository
     public async Task<int> CountByGenderAsync(ClientGender gender, CancellationToken cancellationToken)
     {
         return await clientSet.Clients
-            .Where(c => c.Gender == gender)
-            .CountAsync(cancellationToken);
+            .CountAsync(c => c.Gender == gender, cancellationToken);       
     }
 }
