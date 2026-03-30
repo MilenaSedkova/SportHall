@@ -7,6 +7,8 @@ namespace ClientService.Business.DTOs;
 
 public class UpdateDto
 {
+    public Guid Id { get; set; }
+
     [MaxLength(ClientConstants.MaxPhoneNumberLength, ErrorMessage = "The length of the entered phone number exceeds the maximum")]
     [BelarusPhoneNumber(ErrorMessage = "The number format is incorrect")]
     public string? PhoneNumber { get; set; }

@@ -66,10 +66,16 @@ public class ClientRepository(ClientContext clientSet) : IClientRepository
 
     public async Task<bool> DeleteClientAsync(Guid id, CancellationToken cancellationToken)
     {
-        var deletedCount = await clientSet.Clients
+        var deletedCount = await clientSet.Clients  
             .Where(c => c.Id == id)
             .ExecuteDeleteAsync();
 
         return deletedCount > 0;
+    }
+
+    public async Task<int> CountByGenderAsync(ClientGender gender, CancellationToken cancellationToken)
+    {
+        return await clientSet.Clients
+            .CountAsync(c => c.Gender == gender, cancellationToken);       
     }
 }
