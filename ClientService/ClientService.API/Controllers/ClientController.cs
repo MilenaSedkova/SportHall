@@ -20,14 +20,18 @@ public class ClientController(IClientService clientService): ControllerBase
     }
 
     [HttpGet]
-    public async Task<ActionResult<PagedResult<ClientForAdminDto>>> GetAllClientsAsync(int pageSize, int pageNumber, CancellationToken cancellationToken)
+    public async Task<ActionResult<PagedResult<ClientForAdminDto>>> GetAllClientsAsync([FromQuery] GetClientDto getClient, CancellationToken cancellationToken)
     {
-        var result = await clientService.GetAllAsync(pageSize, pageNumber, cancellationToken);
+        var result = await clientService.GetAllAsync(
+            getClient.PageNumber,
+            getClient.PageSize, 
+            cancellationToken);
+         
         return Ok(result);
     }
 
     [HttpPut]
-    public async Task<ActionResult> UpdateClientAsync(UpdateDto updateDto, CancellationToken cancellationToken)
+    public async Task<ActionResult> UpdateClientAsync(UpdateClientDto updateDto, CancellationToken cancellationToken)
     {
         await clientService.UpdateClientAsync(updateDto, cancellationToken);
         return NoContent();
@@ -48,16 +52,21 @@ public class ClientController(IClientService clientService): ControllerBase
     }
 
     [HttpGet("gender/{clientGender}/count")]
-    public async Task<ActionResult<int>> CountOfClientByGenderasync(ClientGender clientGender, CancellationToken cancellationToken)
+    public async Task<ActionResult<int>> CountByGenderAsync(ClientGender clientGender, CancellationToken cancellationToken)
     {
         var count = await clientService.CountByGenderAsync(clientGender, cancellationToken);
         return Ok(count);
     }
 
     [HttpGet("gender/{clientGender}")]
-    public async Task<ActionResult> GetClientsByGender(int pageSize, int pageNumber, ClientGender clientGender, CancellationToken cancellationToken)
+    public async Task<ActionResult> GetClientsByGender([FromQuery] ClientsByGenderDto query, CancellationToken cancellationToken)
     {
-       var client = await clientService.GetClientByGenderAsync(pageSize, pageNumber, clientGender, cancellationToken);
+       var client = await clientService.GetClientByGenderAsync(
+           query.PageNumber,
+           query.PageSize,
+           query.ClientGender,
+           cancellationToken);
+
         return Ok(client);
     }
 }

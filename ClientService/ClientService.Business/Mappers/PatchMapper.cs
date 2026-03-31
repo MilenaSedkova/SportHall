@@ -5,7 +5,7 @@ namespace ClientService.Business.Mappers;
 
 public static class PatchMapper
 {
-    public static void ApplyMapper(Client client, UpdateDto update)
+    public static void ApplyMapper(Client client, UpdateClientDto update)
     {
         client.PhoneNumber = update.PhoneNumber ?? client.PhoneNumber;
         client.BirthDate = update.BirthDate ?? client.BirthDate;

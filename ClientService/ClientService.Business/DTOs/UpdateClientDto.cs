@@ -5,7 +5,7 @@ using ClientService.DataAccess.Constants;
 
 namespace ClientService.Business.DTOs;
 
-public class UpdateDto
+public class UpdateClientDto
 {
     public Guid Id { get; set; }
 
