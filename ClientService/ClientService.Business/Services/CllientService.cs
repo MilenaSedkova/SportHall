@@ -33,7 +33,7 @@ public class CllientService(IClientRepository clientRepository): IClientService
         return MapToAdminPaged(result);
     }
 
-    public async Task<bool> UpdateClientAsync(UpdateDto updateDto, CancellationToken cancellationToken)
+    public async Task<bool> UpdateClientAsync(UpdateClientDto updateDto, CancellationToken cancellationToken)
     {
         var user = await clientRepository.GetClientByIdAsync(updateDto.Id, isTracking: true, cancellationToken)
             ?? throw new NotFoundException($"Client with id: {updateDto.Id} not found");

@@ -10,7 +10,7 @@ public interface IClientService
 
     Task<PagedResult<ClientForAdminDto?>> GetAllAsync(int pageSize, int pageNumber, CancellationToken cancellationToken);
 
-    Task<bool> UpdateClientAsync(UpdateDto updateDto, CancellationToken cancellationToken);
+    Task<bool> UpdateClientAsync(UpdateClientDto updateDto, CancellationToken cancellationToken);
 
     Task<bool> DeleteClientAsync(Guid id, CancellationToken cancellationToken);
 
