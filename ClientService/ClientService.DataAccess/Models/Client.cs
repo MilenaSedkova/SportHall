@@ -26,4 +26,6 @@ public class Client
     [MaxLength(ClientConstants.MaxPhoneNumberLength)]
     [BelarusPhoneNumber(ErrorMessage = "The number format is incorrect")]
     public required string EmergencyContactPhone {  get; set; }
+
+    public ICollection<Record> Records { get; set; } = new List<Record>();
 }
