@@ -12,7 +12,7 @@ public class Record
 
     public Coach Coach { get; set; } = null!;
 
-    public DateTime StartTime { get; set; }
+    public DateTimeOffset StartTime { get; set; }
 
-    public DateTime EndTime { get; set; }
+    public DateTimeOffset EndTime { get; set; }
 }
