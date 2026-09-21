@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ClientService.DataAccess.Migrations
 {
-    [DbContext(typeof(ClientContext))]
+    [DbContext(typeof(SportHallContext))]
     [Migration("20260323130441_InitialCreate")]
     partial class InitialCreate
     {

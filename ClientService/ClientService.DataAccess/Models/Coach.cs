@@ -1,4 +1,6 @@
-﻿namespace ClientService.DataAccess.Models;
+﻿using ClientService.DataAccess.Enums;
+
+namespace ClientService.DataAccess.Models;
 
 public class Coach
 {
@@ -6,7 +8,7 @@ public class Coach
 
     public required string Name { get; set; }
 
-    public required string Specialization { get; set; }
+    public required CoachSpecialization Specialization { get; set; }
 
     public ICollection<Record> Records { get; set; } = new List<Record>();
 }
