@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 
 namespace ClientService.DataAccess.Migrations
 {
-    [DbContext(typeof(ClientContext))]
+    [DbContext(typeof(SportHallContext))]
     partial class ClientContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

@@ -7,7 +7,7 @@ using ClientService.DataAccess.Enums;
 
 namespace ClientService.DataAccess.Repository;
 
-public class ClientRepository(ClientContext clientSet) : IClientRepository
+public class ClientRepository(SportHallContext clientSet) : IClientRepository
 {
     public async Task<Client?> GetClientByIdAsync(Guid id, bool isTracking, CancellationToken cancellationToken)
     {

@@ -5,7 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
-builder.Services.AddDbContext<ClientContext>(options =>
+builder.Services.AddDbContext<SportHallContext>(options =>
 options.UseSqlServer(connectionString));
 
 builder.Services.AddEndpointsApiExplorer();
