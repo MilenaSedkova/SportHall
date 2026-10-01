@@ -1,5 +1,7 @@
 using ClientService.DataAccess.ContextDb;
+using ClientService.DataAccess.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using ClientService.DataAccess.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +9,8 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 
 builder.Services.AddDbContext<SportHallContext>(options =>
 options.UseSqlServer(connectionString));
+
+builder.Services.AddScoped<ICoachRepository, CoachRepository>();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
